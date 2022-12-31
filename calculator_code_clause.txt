@@ -1,0 +1,83 @@
+import tkinter as tk
+from tkinter import *
+root=tk.Tk()
+root.geometry("400x350")
+root.title("calculator")
+root.configure(background="#dcdcdc")
+
+exp=""
+
+equn=StringVar()
+
+def press(number):
+    global exp
+    exp+=str(number)
+    equn.set(exp)
+
+def clear():
+    global exp
+    exp=""
+    equn.set("")
+
+def equal():
+    global exp
+    total=str(eval(exp))
+    equn.set(total)
+    exp=""
+
+
+
+
+Enter=Entry(root,textvariable=equn, width=30,borderwidth=10,font=('Bold,50')).grid(row=0,column=0,columnspan=4,padx=10)
+
+btn1=Button(root,text="1",width=7,height=2,bg='white',fg='black',font="50" ,  command=lambda:press(1))
+btn1.grid(row=1,column=0,padx=5,pady=5)
+
+btn2=Button(root,text="2",width=7,height=2,bg='white',fg='black',font="50", command=lambda:press(2))
+btn2.grid(row=1,column=1,padx=5,pady=5)
+
+btn3=Button(root,text="3",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(3))
+btn3.grid(row=1,column=2,padx=5,pady=5)
+
+btn4=Button(root,text="4",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(4))
+btn4.grid(row=2,column=0,padx=5,pady=5)
+
+btn5=Button(root,text="5",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(5))
+btn5.grid(row=2,column=1,padx=5,pady=5)
+
+btn6=Button(root,text="6",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(6))
+btn6.grid(row=2,column=2,padx=5,pady=5)
+
+btn7=Button(root,text="7",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(7))
+btn7.grid(row=3,column=0,padx=5,pady=5)
+
+btn8=Button(root,text="8",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(8))
+btn8.grid(row=3,column=1,padx=5,pady=5)
+
+
+btn9=Button(root,text="9",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(9))
+btn9.grid(row=3,column=2,padx=5,pady=5)
+
+btn0=Button(root,text="0",width=7,height=2,bg='white',fg='black',font="50" ,command=lambda:press(0))
+btn0.grid(row=4,column=1,padx=5,pady=5)
+
+btn_sum=Button(root,text="+",width=7,height=2,bg="honeydew",fg='black',font=50, command=lambda:press('+'))
+btn_sum.grid(row=1,column=3,padx=5,pady=5)
+
+btn_sub=Button(root,text="-",width=7,height=2,bg="honeydew",fg='black',font=50,command=lambda:press('-'))
+btn_sub.grid(row=2,column=3,padx=5,pady=5)
+
+btn_mul=Button(root,text="",width=7,height=2,bg="honeydew",fg='black',font=50,command=lambda:press(""))
+btn_mul.grid(row=3,column=3,padx=5,pady=5)
+
+btn_div=Button(root,text="/",width=7,height=2,bg="honeydew",fg='black',font=50,command=lambda:press("/"))
+btn_div.grid(row=4,column=3,padx=5,pady=5)
+
+btn_AC=Button(root,text="AC",width=7,height=2,font=50,command=lambda:clear())
+btn_AC.grid(row=4,column=0,padx=5,pady=5)
+
+btn_total=Button(root,text="=",width=7,height=2,font=50,command=lambda:equal())
+btn_total.grid(row=4,column=2,padx=5,pady=5)
+
+
+root.mainloop()
